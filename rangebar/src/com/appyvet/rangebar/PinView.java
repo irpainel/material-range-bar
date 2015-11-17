@@ -161,7 +161,7 @@ class PinView extends View {
         mCirclePaint.setAntiAlias(true);
 
         //Color filter for the selection pin
-        mPinFilter = new LightingColorFilter(pinColor, pinColor);
+        //mPinFilter = new LightingColorFilter(pinColor, pinColor);
 
         // Sets the minimum touchable area, but allows it to expand based on
         // image size

@@ -134,7 +134,7 @@ public class RangeBar extends View {
 
     //CUSTOM VALUES
     private int mCustomPinSize = 50;
-    private int mCustomPinPadding  = 16;
+    private int mCustomPinPadding  = 28;
 
     // setTickCount only resets indices before a thumb has been pressed or a
     // setThumbIndices() is called, to correspond with intended usage
