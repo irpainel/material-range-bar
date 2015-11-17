@@ -68,7 +68,7 @@ public class RangeBar extends View {
 
     private static final float DEFAULT_TICK_HEIGHT_DP = 1;
 
-    private static final float DEFAULT_PIN_PADDING_DP = 16;
+    private static final float DEFAULT_PIN_PADDING_DP = 24;
 
     public static final float DEFAULT_MIN_PIN_FONT_SP = 8;
 
@@ -90,7 +90,7 @@ public class RangeBar extends View {
     // Corresponds to material indigo 500.
     private static final int DEFAULT_CONNECTING_LINE_COLOR = 0xff3f51b5;
 
-    private static final float DEFAULT_EXPANDED_PIN_RADIUS_DP = 12;
+    private static final float DEFAULT_EXPANDED_PIN_RADIUS_DP = 16;
 
     private static final float DEFAULT_CIRCLE_SIZE_DP = 5;
 
@@ -131,6 +131,10 @@ public class RangeBar extends View {
     private float mMinPinFont = DEFAULT_MIN_PIN_FONT_SP;
 
     private float mMaxPinFont = DEFAULT_MAX_PIN_FONT_SP;
+
+    //CUSTOM VALUES
+    private int mCustomPinSize = 50;
+    private int mCustomPinPadding  = 16;
 
     // setTickCount only resets indices before a thumb has been pressed or a
     // setThumbIndices() is called, to correspond with intended usage
@@ -185,7 +189,7 @@ public class RangeBar extends View {
 
     private IRangeBarFormatter mFormatter;
 
-    private boolean drawTicks = true;
+    private boolean drawTicks = false;
 
     private boolean mArePinsTemporary = true;
 
@@ -350,14 +354,16 @@ public class RangeBar extends View {
             mLeftThumb.setFormatter(mFormatter);
             mLeftThumb.init(ctx, yPos, expandedPinRadius, mPinColor, mTextColor, mCircleSize,
                     mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
+            mLeftThumb.setSize(mCustomPinSize, mCustomPinPadding);
         }
         mRightThumb = new PinView(ctx);
         mRightThumb.setFormatter(mFormatter);
         mRightThumb.init(ctx, yPos, expandedPinRadius, mPinColor, mTextColor, mCircleSize,
                 mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
+        mRightThumb.setSize(mCustomPinSize, mCustomPinPadding);
 
         // Create the underlying bar.
-        final float marginLeft = Math.max(mExpandedPinRadius, mCircleSize);
+        final float marginLeft = convertDPtoPixel((int)DEFAULT_PIN_PADDING_DP);
 
         final float barLength = w - (2 * marginLeft);
         mBar = new Bar(ctx, marginLeft, yPos, barLength, mTickCount, mTickHeightDP, mTickColor,
@@ -1477,6 +1483,14 @@ public class RangeBar extends View {
     public static interface OnRangeBarTextListener {
 
         public String getPinValue(RangeBar rangeBar, int tickIndex);
+    }
+
+    public int convertDPtoPixel(int input) {
+        // Get the screen's density scale
+        final float scale = getResources().getDisplayMetrics().density;
+        // Convert the dps to pixels, based on density scale
+        int px = (int) Math.ceil(input * scale);
+        return px;
     }
 
 

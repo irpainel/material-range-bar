@@ -123,7 +123,7 @@ class PinView extends View {
             float circleRadius, int circleColor, float minFont, float maxFont, boolean pinsAreTemporary) {
 
         mRes = ctx.getResources();
-        mPin = ContextCompat.getDrawable(ctx, R.drawable.rotate);
+        mPin = ContextCompat.getDrawable(ctx, R.drawable.img_slider_flag);
 
         mDensity = getResources().getDisplayMetrics().density;
         mMinPinFont = minFont / mDensity;
@@ -262,11 +262,13 @@ class PinView extends View {
         canvas.drawCircle(mX, mY, mCircleRadiusPx, mCirclePaint);
         //Draw pin if pressed
         if (mPinRadiusPx > 0 && (mHasBeenPressed || !mPinsAreTemporary)) {
-            mBounds.set((int) mX - mPinRadiusPx,
-                    (int) mY - (mPinRadiusPx * 2) - (int) mPinPadding,
-                    (int) mX + mPinRadiusPx, (int) mY - (int) mPinPadding);
-            mPin.setBounds(mBounds);
             String text = mValue;
+            int lengthsPadding = (text.length() - 1) * 5;
+            mBounds.set((int) mX - mPinRadiusPx - lengthsPadding,
+                    (int) mY - (mPinRadiusPx * 2) - (int) mPinPadding,
+                    (int) mX + mPinRadiusPx + lengthsPadding,
+                    (int) mY - (int) mPinPadding);
+            mPin.setBounds(mBounds);
 
             if (this.formatter != null) {
                 text = formatter.format(text);

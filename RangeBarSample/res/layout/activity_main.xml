@@ -26,12 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             custom:tickStart="5"
-            custom:tickInterval="1"
-            custom:tickEnd="10"
+            custom:pinColor="@color/accent"
+            custom:tickInterval="1000"
+            custom:tickEnd="100000"
             custom:temporaryPins="false"
-            custom:pinMaxFont="10sp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+            custom:pinMaxFont="10sp"/>
 
     <include
             android:layout_width="wrap_content"
