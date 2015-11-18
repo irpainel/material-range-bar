@@ -6,6 +6,7 @@ import com.appyvet.rangebarsample.colorpicker.ColorPickerDialog;
 import com.appyvet.rangebarsample.colorpicker.Utils;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import java.lang.reflect.Type;
 
 public class MainActivity extends Activity implements
         ColorPickerDialog.OnColorSelectedListener {
@@ -77,6 +80,8 @@ public class MainActivity extends Activity implements
 
         // Gets the RangeBar
         rangebar = (RangeBar) findViewById(R.id.rangebar1);
+        Typeface font = Typeface.createFromAsset(getBaseContext().getAssets(),"Roboto-Thin.ttf");
+        rangebar.setPinFont(font);
 
         rangeButton.setOnClickListener(new View.OnClickListener() {
             @Override

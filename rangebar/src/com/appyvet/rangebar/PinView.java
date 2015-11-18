@@ -20,8 +20,10 @@ import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -92,6 +94,8 @@ class PinView extends View {
     private boolean mPinsAreTemporary;
 
     private boolean mHasBeenPressed = false;
+
+    private Typeface mFont;
 
     // Constructors ////////////////////////////////////////////////////////////
 
@@ -254,6 +258,10 @@ class PinView extends View {
     public boolean isInTargetZone(float x, float y) {
         return (Math.abs(x - mX) <= mTargetRadiusPx
                 && Math.abs(y - mY + mPinPadding) <= mTargetRadiusPx);
+    }
+
+    public void setTypeface(Typeface font) {
+        mTextPaint.setTypeface(Typeface.create(font, Typeface.NORMAL));
     }
 
     //Draw the circle regardless of pressed state. If pin size is >0 then also draw the pin and text

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<rotate xmlns:android="http://schemas.android.com/apk/res/android"
-        android:drawable="@drawable/roundrect"
-        android:fromDegrees="45"
-        android:drawablePadding="20dp"
-        android:toDegrees="45"
-        android:visible="true"/><!-- From: file:/Users/taqtile/Projects/material-range-bar/rangebar/res/drawable/rotate.xml --><!-- From: file:/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/exploded-aar/com.appyvet/rangebar/1.3/res/drawable/rotate.xml -->

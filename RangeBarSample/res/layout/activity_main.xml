@@ -31,9 +31,9 @@
         custom:barWeight="1dp"
         custom:selectorSize="8dp"
             custom:tickInterval="1000"
-            custom:tickEnd="100000"
+            custom:tickEnd="1000000"
             custom:temporaryPins="false"
-            custom:pinMaxFont="10sp"/>
+            custom:pinMaxFont="20sp"/>
 
     <include
             android:layout_width="wrap_content"

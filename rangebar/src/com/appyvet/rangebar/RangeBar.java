@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -68,7 +69,7 @@ public class RangeBar extends View {
 
     private static final float DEFAULT_TICK_HEIGHT_DP = 1;
 
-    private static final float DEFAULT_PIN_PADDING_DP = 24;
+    private static final float DEFAULT_PIN_PADDING_DP = 32;
 
     public static final float DEFAULT_MIN_PIN_FONT_SP = 8;
 
@@ -192,6 +193,8 @@ public class RangeBar extends View {
     private boolean drawTicks = false;
 
     private boolean mArePinsTemporary = true;
+
+    private Typeface mFont;
 
     private PinTextFormatter mPinTextFormatter = new PinTextFormatter() {
         @Override
@@ -354,12 +357,16 @@ public class RangeBar extends View {
             mLeftThumb.setFormatter(mFormatter);
             mLeftThumb.init(ctx, yPos, expandedPinRadius, mPinColor, mTextColor, mCircleSize,
                     mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
+            if (mFont != null)
+                mLeftThumb.setTypeface(mFont);
             mLeftThumb.setSize(mCustomPinSize, mCustomPinPadding);
         }
         mRightThumb = new PinView(ctx);
         mRightThumb.setFormatter(mFormatter);
         mRightThumb.init(ctx, yPos, expandedPinRadius, mPinColor, mTextColor, mCircleSize,
                 mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
+        if (mFont != null)
+            mRightThumb.setTypeface(mFont);
         mRightThumb.setSize(mCustomPinSize, mCustomPinPadding);
 
         // Create the underlying bar.
@@ -376,6 +383,7 @@ public class RangeBar extends View {
         }
         mRightThumb.setX(marginLeft + (mRightIndex / (float) (mTickCount - 1)) * barLength);
         mRightThumb.setXValue(getPinValue(mRightIndex));
+
 
         // Set the thumb indices.
         final int newLeftIndex = mIsRangeBar ? mBar.getNearestTickIndex(mLeftThumb) : 0;
@@ -472,6 +480,10 @@ public class RangeBar extends View {
 
     // Public Methods //////////////////////////////////////////////////////////
 
+
+    public void setPinFont(Typeface font) {
+        mFont = font;
+    }
     /**
      * Sets a listener to receive notifications of changes to the RangeBar. This
      * will overwrite any existing set listeners.
@@ -1437,7 +1449,8 @@ public class RangeBar extends View {
                 xValue = String.valueOf(tickValue);
             }
         }
-        return mPinTextFormatter.getText(xValue);
+        Log.d("xValue", xValue + "");
+        return xValue;
     }
 
     /**
