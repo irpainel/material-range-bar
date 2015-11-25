@@ -5,8 +5,36 @@
         jar="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/exploded-aar/com.appyvet/rangebar/1.3/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="4ea54fffda0d12928dd1ebd670d982ce06ec3353">
+        sha1="d0faa6341d5001f718da61ab3a7876b49da65c9b">
         <dex dex="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/pre-dexed/debug/classes-25e3b6cb4d5e8c2fa890f23ad1f735ff75119c3b.jar" />
+    </item>
+    <item
+        jar="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/pre-dexed/debug/classes-ba6124d960149b0d116002f27da24187f03eff15.jar" />
+    </item>
+    <item
+        jar="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/pre-dexed/debug/classes-6d09071bee25e879f8b4fe05f577f8d6f2a08f4d.jar" />
+    </item>
+    <item
+        jar="/Users/taqtile/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-f6fbf0fed6d524cabd8da00bbe44fb3ebcc7b8f3.jar" />
+    </item>
+    <item
+        jar="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/Users/taqtile/Projects/material-range-bar/RangeBarSample/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-25d41f1db12ae4bf70b91c9244d2990c738dc7e8.jar" />
     </item>
 
 </items>

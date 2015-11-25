@@ -179,13 +179,16 @@ containing a value of this type.
          */
         public static int tickStart=0x7f010000;
     }
+    public static final class dimen {
+        public static int bar_margin=0x7f040000;
+    }
     public static final class drawable {
         public static int img_slider_flag=0x7f020000;
         public static int rotate=0x7f020001;
         public static int roundrect=0x7f020002;
     }
     public static final class string {
-        public static int app_name=0x7f040000;
+        public static int app_name=0x7f050000;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
