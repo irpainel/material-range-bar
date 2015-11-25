@@ -268,29 +268,26 @@ class PinView extends View {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawCircle(mX, mY, mCircleRadiusPx, mCirclePaint);
-        //Draw pin if pressed
-        if (mPinRadiusPx > 0 && (mHasBeenPressed || !mPinsAreTemporary)) {
-            String text = mValue;
-            int lengthsPadding = (text.length() - 1) * 5;
-            mBounds.set((int) mX - mPinRadiusPx - lengthsPadding,
-                    (int) mY - (mPinRadiusPx * 2) - (int) mPinPadding,
-                    (int) mX + mPinRadiusPx + lengthsPadding,
-                    (int) mY - (int) mPinPadding);
-            mPin.setBounds(mBounds);
+        String text = mValue;
+        int lengthsPadding = (text.length() - 1) * 5;
+        mBounds.set((int) mX - mPinRadiusPx - lengthsPadding,
+                (int) mY - (mPinRadiusPx * 2) - (int) mPinPadding,
+                (int) mX + mPinRadiusPx + lengthsPadding,
+                (int) mY - (int) mPinPadding);
+        mPin.setBounds(mBounds);
 
-            if (this.formatter != null) {
-                text = formatter.format(text);
-            }
-
-            calibrateTextSize(mTextPaint, text, mBounds.width());
-            mTextPaint.getTextBounds(text, 0, text.length(), mBounds);
-            mTextPaint.setTextAlign(Paint.Align.CENTER);
-            mPin.setColorFilter(mPinFilter);
-            mPin.draw(canvas);
-            canvas.drawText(text,
-                    mX, mY - mPinRadiusPx - mPinPadding + mTextYPadding,
-                    mTextPaint);
+        if (this.formatter != null) {
+            text = formatter.format(text);
         }
+
+        calibrateTextSize(mTextPaint, text, mBounds.width());
+        mTextPaint.getTextBounds(text, 0, text.length(), mBounds);
+        mTextPaint.setTextAlign(Paint.Align.CENTER);
+        mPin.setColorFilter(mPinFilter);
+        mPin.draw(canvas);
+        canvas.drawText(text,
+                mX, mY - mPinRadiusPx - mPinPadding + mTextYPadding,
+                mTextPaint);
         super.draw(canvas);
     }
 

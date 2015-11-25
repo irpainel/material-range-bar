@@ -17,4 +17,6 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <item name="bar_margin" format="float" type="dimen">40</item>
+
 </resources>

@@ -1,0 +1,5 @@
+<resources>
+
+    <item name="bar_margin" format="float" type="dimen">32</item>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/taqtile/Projects/material-range-bar/rangebar/res/values-v21/styles.xml -->
+    <eat-comment/>
+    <item format="float" name="bar_margin" type="dimen">32</item>
+</resources>

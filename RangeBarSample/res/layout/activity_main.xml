@@ -24,7 +24,7 @@
             xmlns:custom="http://schemas.android.com/apk/res-auto"
             android:id="@+id/rangebar1"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="200dp"
             custom:tickStart="5"
         custom:connectingLineColor="#008C99"
         custom:selectorColor="#008C99"

@@ -69,11 +69,11 @@ public class RangeBar extends View {
 
     private static final float DEFAULT_TICK_HEIGHT_DP = 1;
 
-    private static final float DEFAULT_PIN_PADDING_DP = 32;
+    private static final float DEFAULT_PIN_PADDING_DP = 36;
 
-    public static final float DEFAULT_MIN_PIN_FONT_SP = 8;
+    public static final float DEFAULT_MIN_PIN_FONT_SP = 12;
 
-    public static final float DEFAULT_MAX_PIN_FONT_SP = 24;
+    public static final float DEFAULT_MAX_PIN_FONT_SP = 16;
 
     private static final float DEFAULT_BAR_WEIGHT_PX = 2;
 
@@ -134,8 +134,8 @@ public class RangeBar extends View {
     private float mMaxPinFont = DEFAULT_MAX_PIN_FONT_SP;
 
     //CUSTOM VALUES
-    private int mCustomPinSize = 50;
-    private int mCustomPinPadding  = 28;
+    private int mCustomPinSize = 16;
+    private int mCustomPinPadding  = 8;
 
     // setTickCount only resets indices before a thumb has been pressed or a
     // setThumbIndices() is called, to correspond with intended usage
@@ -359,7 +359,7 @@ public class RangeBar extends View {
                     mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
             if (mFont != null)
                 mLeftThumb.setTypeface(mFont);
-            mLeftThumb.setSize(mCustomPinSize, mCustomPinPadding);
+            mLeftThumb.setSize(convertDPtoPixel(mCustomPinSize), convertDPtoPixel(mCustomPinPadding));
         }
         mRightThumb = new PinView(ctx);
         mRightThumb.setFormatter(mFormatter);
@@ -367,10 +367,13 @@ public class RangeBar extends View {
                 mCircleColor, mMinPinFont, mMaxPinFont, mArePinsTemporary);
         if (mFont != null)
             mRightThumb.setTypeface(mFont);
-        mRightThumb.setSize(mCustomPinSize, mCustomPinPadding);
+        mRightThumb.setSize(convertDPtoPixel(mCustomPinSize), convertDPtoPixel(mCustomPinPadding));
 
+        TypedValue outValue = new TypedValue();
+        getResources().getValue(R.dimen.bar_margin, outValue, true);
+        float value = outValue.getFloat();
         // Create the underlying bar.
-        final float marginLeft = convertDPtoPixel((int)DEFAULT_PIN_PADDING_DP);
+        final float marginLeft = convertDPtoPixel((int)value);
 
         final float barLength = w - (2 * marginLeft);
         mBar = new Bar(ctx, marginLeft, yPos, barLength, mTickCount, mTickHeightDP, mTickColor,
